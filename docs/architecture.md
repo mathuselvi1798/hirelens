@@ -50,7 +50,7 @@ learn the difference. This is why the database could safely be deferred until
 the result shapes were known rather than guessed.
 
 ### 7. Errors are domain objects
-Business code raises `NexaError` subclasses; only the API layer turns them
+Business code raises `HirelensError` subclasses; only the API layer turns them
 into responses. Services stay usable from workers, CLIs, and tests, and the
 frontend gets one predictable error envelope.
 

@@ -47,5 +47,5 @@ def configure_logging(settings: Settings) -> None:
     )
 
 
-def get_logger(name: str = "nexa"):
+def get_logger(name: str = "hirelens"):
     return structlog.get_logger(name)

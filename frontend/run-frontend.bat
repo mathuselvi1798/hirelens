@@ -1,10 +1,10 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-title NEXA AI Analyzer - web app
+title Hirelens - web app
 
 echo ==================================================
-echo   NEXA web app starting
+echo   Hirelens web app starting
 echo.
 echo   App : http://localhost:3000
 echo.

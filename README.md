@@ -1,8 +1,12 @@
-# NEXA AI Analyzer
+# Hirelens
 
-An AI-powered career intelligence platform. Upload a resume, and NEXA returns a
-structured, validated analysis: quality review, job-match scoring, ATS
-readiness, skill gaps, and career recommendations.
+See your resume the way recruiters and applicant tracking systems do.
+
+Upload a CV and Hirelens returns a structured, schema-validated analysis:
+a scored quality review, a match score against a specific job posting, an
+ATS-readiness assessment, and a realistic career roadmap.
+
+Runs on a free API tier. No paid account required.
 
 > **Status:** Phase 3 of 10. The backend analysis engine is complete and tested.
 > The Next.js frontend and PostgreSQL persistence follow.
@@ -48,7 +52,7 @@ Two supporting rules keep that true:
 ## Project structure
 
 ```
-nexa-ai-analyzer/
+hirelens/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py               app factory

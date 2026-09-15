@@ -20,7 +20,7 @@ from app.api.errors import register_exception_handlers
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     settings: Settings = get_settings()
-    logger = get_logger("nexa.startup")
+    logger = get_logger("hirelens.startup")
 
     # Import every analysis module once, at startup, so a broken module fails
     # loudly here rather than on a user's first request.
@@ -48,7 +48,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     app = FastAPI(
         title=settings.app_name,
-        description="AI-powered career intelligence API.",
+        description="Hirelens - AI-powered career intelligence API.",
         version=__version__,
         lifespan=lifespan,
         docs_url="/docs" if not settings.is_production else None,

@@ -19,14 +19,14 @@ from app.core.exceptions import (
     AIRateLimitError,
     AIResponseError,
     AIUnavailableError,
-    NexaError,
+    HirelensError,
 )
 from app.core.logging import get_logger
 
 logger = get_logger(__name__)
 
 
-def classify_provider_error(exc: Exception) -> NexaError:
+def classify_provider_error(exc: Exception) -> HirelensError:
     """Turn a vendor exception into a domain error the UI can act on.
 
     Matching on both the status code and the message text is deliberate: SDK

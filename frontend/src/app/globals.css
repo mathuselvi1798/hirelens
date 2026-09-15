@@ -105,7 +105,7 @@ body {
   outline-offset: 2px;
 }
 
-@keyframes nexa-shimmer {
+@keyframes hirelens-shimmer {
   100% { transform: translateX(100%); }
 }
 
@@ -125,7 +125,7 @@ body {
     color-mix(in oklch, var(--fg) 6%, transparent),
     transparent
   );
-  animation: nexa-shimmer 1.6s infinite;
+  animation: hirelens-shimmer 1.6s infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

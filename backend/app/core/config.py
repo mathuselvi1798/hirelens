@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     )
 
     # --- Application -------------------------------------------------------
-    app_name: str = "NEXA AI Analyzer"
+    app_name: str = "Hirelens"
     api_v1_prefix: str = "/api/v1"
     environment: Literal["development", "staging", "production"] = "development"
     debug: bool = True

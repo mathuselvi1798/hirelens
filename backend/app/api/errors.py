@@ -1,6 +1,6 @@
 """Translates domain errors into HTTP responses.
 
-This is the only place that knows a `NexaError` becomes a status code. Keeping
+This is the only place that knows a `HirelensError` becomes a status code. Keeping
 it here - rather than in `app/core/exceptions.py` - means the domain layer has
 no dependency on FastAPI, so services remain usable from a worker or a CLI.
 """
@@ -8,15 +8,15 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from app.core.exceptions import NexaError
+from app.core.exceptions import HirelensError
 from app.core.logging import get_logger
 
 logger = get_logger(__name__)
 
 
 def register_exception_handlers(app: FastAPI) -> None:
-    @app.exception_handler(NexaError)
-    async def _nexa_error_handler(_: Request, exc: NexaError) -> JSONResponse:
+    @app.exception_handler(HirelensError)
+    async def _hirelens_error_handler(_: Request, exc: HirelensError) -> JSONResponse:
         logger.warning(
             "handled_error", code=exc.code, message=exc.message, details=exc.details
         )

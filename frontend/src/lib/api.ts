@@ -59,7 +59,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     // fetch only rejects on network-level failure, which here almost always
     // means the backend is not running. Say that, rather than "failed to fetch".
     throw new ApiError(
-      "Cannot reach the NEXA API. Make sure the backend is running on port 8000.",
+      "Cannot reach the Hirelens API. Make sure the backend is running on port 8000.",
       "backend_unreachable",
       0,
     );

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NEXA AI Analyzer",
+  title: "Hirelens — Career Intelligence",
   description:
-    "AI-powered career intelligence: resume analysis, job matching, ATS readiness, and career recommendations.",
+    "See your resume the way recruiters and applicant tracking systems do: "
+    + "quality scoring, job matching, ATS readiness, and career recommendations.",
 };
 
 export default function RootLayout({

@@ -48,7 +48,7 @@ export function Analyzer() {
         setBootError(
           err instanceof ApiError
             ? err.message
-            : "Could not reach the NEXA API.",
+            : "Could not reach the Hirelens API.",
         );
       });
     return () => {
@@ -272,7 +272,7 @@ function hintFor(code: string, provider?: string): string | undefined {
     case "file_too_large":
       return "Try compressing the PDF or exporting it without embedded images.";
     case "backend_unreachable":
-      return "Double-click start-nexa.bat, then try again.";
+      return "Double-click start-hirelens.bat, then try again.";
     default:
       return undefined;
   }

@@ -1,4 +1,4 @@
-# NEXA frontend — Phase 5
+# Hirelens frontend — Phase 5
 
 Next.js 15 (App Router) + TypeScript + Tailwind v4. No UI-kit dependency: the
 component layer is owned by this project, so the visual language can evolve

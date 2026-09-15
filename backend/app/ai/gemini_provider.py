@@ -21,7 +21,7 @@ from app.core.exceptions import (
     AIRateLimitError,
     AIResponseError,
     AIUnavailableError,
-    NexaError,
+    HirelensError,
 )
 from app.core.logging import get_logger
 
@@ -30,7 +30,7 @@ logger = get_logger(__name__)
 BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
 
-def classify_gemini_error(status: int, body: str) -> NexaError:
+def classify_gemini_error(status: int, body: str) -> HirelensError:
     text = body.lower()
 
     if status in (401, 403) or "api key not valid" in text or "api_key_invalid" in text:

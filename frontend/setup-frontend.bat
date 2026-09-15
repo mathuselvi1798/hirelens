@@ -3,7 +3,7 @@ setlocal
 cd /d "%~dp0"
 
 echo ==================================================
-echo   NEXA AI Analyzer - frontend setup
+echo   Hirelens - frontend setup
 echo ==================================================
 echo.
 
