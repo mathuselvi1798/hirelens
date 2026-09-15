@@ -1,0 +1,15 @@
+# Normalise line endings so the repo is identical on Windows, macOS and Linux.
+# Without this, Git warns on every file and diffs get noisy when the project
+# moves between machines.
+* text=auto eol=lf
+
+# Windows scripts must keep CRLF or cmd.exe can mis-parse them.
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Never touch binary files.
+*.png binary
+*.jpg binary
+*.pdf binary
+*.docx binary
+*.ico binary

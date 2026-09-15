@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens.
+
+   Colours are defined once as CSS variables and mapped into Tailwind's theme,
+   so `bg-surface` or `text-muted` resolve correctly in both light and dark
+   without a single `dark:` prefix scattered through the components.
+
+   The palette is deliberately restrained: one accent, a neutral ramp, and
+   three semantic colours. Premium software reads as calm, not colourful.
+--------------------------------------------------------------------------- */
+
+:root {
+  --bg: oklch(0.985 0.002 260);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.975 0.003 260);
+  --border: oklch(0.915 0.005 260);
+  --border-strong: oklch(0.86 0.008 260);
+
+  --fg: oklch(0.21 0.02 265);
+  --fg-muted: oklch(0.52 0.015 265);
+  --fg-subtle: oklch(0.63 0.012 265);
+
+  --accent: oklch(0.55 0.19 275);
+  --accent-hover: oklch(0.49 0.19 275);
+  --accent-soft: oklch(0.955 0.02 275);
+  --on-accent: oklch(1 0 0);
+
+  --success: oklch(0.6 0.15 150);
+  --warning: oklch(0.72 0.15 75);
+  --danger: oklch(0.58 0.2 25);
+
+  --ring: oklch(0.55 0.19 275 / 0.45);
+  --shadow-color: 260 25% 15%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: oklch(0.17 0.012 265);
+    --surface: oklch(0.213 0.015 265);
+    --surface-2: oklch(0.247 0.016 265);
+    --border: oklch(0.3 0.016 265);
+    --border-strong: oklch(0.38 0.018 265);
+
+    --fg: oklch(0.96 0.004 260);
+    --fg-muted: oklch(0.74 0.012 265);
+    --fg-subtle: oklch(0.62 0.012 265);
+
+    --accent: oklch(0.68 0.16 275);
+    --accent-hover: oklch(0.74 0.16 275);
+    --accent-soft: oklch(0.3 0.06 275);
+    --on-accent: oklch(0.16 0.02 265);
+
+    --success: oklch(0.72 0.15 150);
+    --warning: oklch(0.8 0.14 75);
+    --danger: oklch(0.7 0.17 25);
+
+    --ring: oklch(0.68 0.16 275 / 0.5);
+    --shadow-color: 260 60% 2%;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-subtle: var(--fg-subtle);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --radius-card: 0.875rem;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible, consistent focus for keyboard users - never removed, only styled. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@keyframes nexa-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--fg) 6%, transparent),
+    transparent
+  );
+  animation: nexa-shimmer 1.6s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer::after { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
