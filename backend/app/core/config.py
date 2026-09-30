@@ -55,6 +55,14 @@ class Settings(BaseSettings):
     # --- Database (Phase 4) ------------------------------------------------
     database_url: str = ""
 
+    # --- Auth (Phase 8) ------------------------------------------------------
+    # Dev-only fallback - set a real random JWT_SECRET_KEY in backend/.env
+    # before deploying anywhere public. Anyone who knows this value can forge
+    # a valid login token.
+    jwt_secret_key: str = "insecure-dev-secret-change-me-in-.env"
+    jwt_algorithm: str = "HS256"
+    jwt_expire_minutes: int = 60 * 24 * 7  # 7 days
+
     # --- Derived helpers ---------------------------------------------------
     @property
     def cors_origin_list(self) -> list[str]:

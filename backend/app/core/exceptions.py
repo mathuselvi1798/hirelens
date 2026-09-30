@@ -124,3 +124,23 @@ class AIOverloadedError(HirelensError):
     code = "ai_overloaded"
     status_code = 503
     message = "The AI service is temporarily overloaded."
+
+
+# --- Auth errors -------------------------------------------------------
+
+class EmailAlreadyRegisteredError(HirelensError):
+    code = "email_already_registered"
+    status_code = 409
+    message = "An account with that email already exists."
+
+
+class InvalidCredentialsError(HirelensError):
+    code = "invalid_credentials"
+    status_code = 401
+    message = "Incorrect email or password."
+
+
+class NotAuthenticatedError(HirelensError):
+    code = "not_authenticated"
+    status_code = 401
+    message = "You must be logged in to do that."

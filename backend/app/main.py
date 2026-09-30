@@ -26,6 +26,18 @@ async def lifespan(app: FastAPI):
     # loudly here rather than on a user's first request.
     discover()
 
+    if settings.database_url:
+        from app.core.database import create_all_tables
+
+        create_all_tables(settings)
+        logger.info("database_ready", url_scheme=settings.database_url.split("://")[0])
+    else:
+        logger.warning(
+            "database_disabled",
+            hint="DATABASE_URL is unset - documents are kept in memory only "
+            "and are lost on restart.",
+        )
+
     logger.info(
         "startup",
         app=settings.app_name,
